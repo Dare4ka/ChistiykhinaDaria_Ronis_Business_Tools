@@ -1,0 +1,662 @@
+*
+	padding: 0
+	margin: 0
+	box-sizing: border-box
+
+
+$ff: 'Yantramanav', sans-serif
+$ff2: 'Nunito', sans-serif
+$fs: 15px
+.page
+	width: 100%
+	min-height: 100%
+	font-family: ($ff)
+	font-weight: 100
+	font-size: ($fs)
+	letter-spacing: 1px
+	color: #000
+
+%section
+	width: 100%
+	min-height: 100vh
+	position: relative
+
+.head
+	@extend %section
+	background: #868686 url("../img/bg.jpg") no-repeat center
+	background-size: cover
+	display: flex
+	align-items: center
+	justify-content: center
+	position: relative
+	font-weight: 300
+
+	&__logo
+		position: absolute
+		padding: 35px
+		top: 0
+		left: 0
+
+	&__block
+		text-align: center
+		width: 45%
+		min-width: 441px
+
+	&__title
+		font-size: 60px
+		font-family: ($ff2)
+		color: #fff
+		font-weight: 300
+
+	&__text
+		font-size: ($fs) + 2
+		color: #fff
+		padding: 20px 20px 50px
+
+.form
+	margin: auto
+	width: 80%
+	min-width: 441px
+	border-radius: 23px
+	overflow: hidden
+	background-color: #fff
+	
+	&__email
+		background-color: #fff
+		color: #8c8c8c
+		font-size: ($fs) + 3
+		line-height: ($fs) + 5
+		border: none
+		outline: none !important
+		padding: 15px 30px
+		font-weight: 300
+
+	&__btn
+		float: right
+		background-color: #20ab50
+		color: #fff
+		font-size: ($fs) + 5
+		line-height: ($fs) + 5
+		border: none
+		outline: none !important
+		padding: 15px 50px 15px 40px
+
+
+.navigation
+	position: fixed
+	height: 100%
+	top: 0
+	right: 50px
+	z-index: 10
+	
+	&__menu
+		height: 100%
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		list-style: none
+
+	&__item
+		padding: 8px 0
+
+	&__link
+		display: block
+		color: #dcdcdc
+		font-size: 0
+		background-color: #dcdcdc
+		width: 8px
+		height: 8px
+		border-radius: 50%
+		box-shadow: 0 0 4px 1px #fff
+
+		&_active
+			width: 12px
+			height: 12px
+
+.title
+	font-size: ($fs) * 2
+	font-family: ($ff2)
+	text-align: center
+	font-weight: 300
+	padding: 20px 0
+	position: relative
+	z-index: 1
+
+	&__text
+		font-size: ($fs) + 3
+		line-height: 40px
+		text-align: center
+		position: relative
+		z-index: 1
+
+@mixin img($left, $right, $url)
+	background: url($url) no-repeat center
+	background-size: cover
+	position: absolute
+	top: 0
+	bottom: 0
+	left: $left
+	right: $right
+
+%block
+	width: 50%
+	min-height: 100vh
+	display: flex
+	flex-direction: column
+	justify-content: center
+	padding: 2% 8%
+
+.about
+	@extend %section
+	background-color: #fff
+
+	&__img
+		@include img(50%, 0, '../img/about.jpg')
+	
+	&__block
+		@extend %block
+
+	&__text
+		font-size: ($fs) + 1
+		padding: 20px 0
+
+.review1
+	@extend %section
+	background-color: #fff
+	text-align: center
+
+	&__img
+		@include img(0, 50%, '../img/reviews.jpg')
+
+	&__block
+		@extend %block
+		margin-left: 50%
+
+.review2
+	@extend %section
+	background-color: #fff
+	text-align: center
+
+	&__img
+		@include img(50%, 0, '../img/reviews2.jpg')
+
+	&__block
+		@extend %block
+
+.comment
+
+	&__block
+		padding: 40px 0
+
+	&__text
+		font-size: ($fs) + 5
+		padding: 0 30px
+
+	&__quote
+		font-size: 72px
+		line-height: 38px
+		color: #dcdcdc
+		font-family: ($ff2)
+		font-weight: 300
+		font-style: italic
+
+		&_top
+			text-align: left
+
+		&_bottom
+			text-align: right
+
+	&__age
+		font-size: ($fs) + 3
+
+.range
+	@extend %section
+	padding: 0 16%
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+
+
+.slider
+	width: 100%
+	padding: 0 40px
+	position: relative
+	text-align: center
+
+	&__list
+		position: relative
+		overflow: hidden
+		width: 100%
+
+	&__wrap
+		position: relative
+		top: 0
+		left: 0
+		display: flex
+		width: calc(100% * 7)
+
+	&__item
+		width: calc(100% / 7)
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		align-items: center
+		overflow: hidden
+
+	&__img-block
+		max-height: 452px
+		height: 70%
+		width: 60%
+
+	&__img
+		max-height: 100%
+		max-width: 100%
+		height: auto
+		width: auto
+	
+	&__title
+		font-size: ($fs) + 9
+		line-height: 38px
+		font-family: ($ff2)
+		font-weight: 300
+
+	&__number
+		font-size: ($fs) + 3
+		line-height: 40px
+
+	&__arow
+		position: absolute
+		top: calc(50% - 20px)
+
+		&_prev
+			left: 0
+
+		&_next
+			right: 0
+			transform: scaleX(-1)
+
+@mixin whyBg($left, $width, $top, $height)
+	left: $left
+	width: $width
+	top: $top
+	height: $height
+
+%whySvg
+	position: absolute
+	width: 3vmin
+	height: 3vmin
+	max-width: 24px
+	max-height: 24px
+
+@mixin whySvg($left, $top)
+	@extend %whySvg
+	top: $top
+	left: $left
+
+.why
+	@extend %section
+	position: relative
+	background-color: #e1e0e1
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+
+	&__bg-block
+		height: 100%	
+		position: relative
+		background: #e1e0e1 url('../img/image.jpg') no-repeat center
+		background-size: contain
+
+	&__bg
+		position: absolute
+		height: 100%
+		width: 100%
+
+	&__boots
+		position: absolute
+
+		&_pull
+			@include whyBg(12%, 7%, 37%, 7%)
+			z-index: 1
+
+			.why__svg
+				@include whySvg(40%, 15%)
+
+
+		&_shock
+			@include whyBg(15%, 9%, 41%, 9%)
+
+			.why__svg
+				@include whySvg(18%, 42%)
+
+		&_custom
+			@include whyBg(18%, 22%, 51%, 18%)
+			transform: rotate(-35deg)
+
+			.why__svg
+				@include whySvg(10%, 10%)
+
+		&_eco
+			@include whyBg(30%, 16%, 75%, 8%)
+
+			.why__svg
+				@include whySvg(25%, 35%)
+
+		&_toe
+			@include whyBg(40%, 16%, 78%, 8%)
+			transform: rotate(-35deg)
+
+			.why__svg
+				@include whySvg(45%, 50%)
+
+		&_machine
+			@include whyBg(43%, 25%, 36%, 10%)
+
+			.why__svg
+				@include whySvg(35%, 20%)
+
+		&_form
+			@include whyBg(38%, 25%, 45%, 13%)
+			transform: rotate(20deg)
+			z-index: 1
+
+			.why__svg
+				@include whySvg(75%, 8%)
+
+		&_flexible
+			height: 15%
+			@include whyBg(75%, 13%, 50%, 15%)
+
+			.why__svg
+				@include whySvg(40%, 5%)
+
+		&_traction
+			@include whyBg(63%, 11.5%, 47%, 19%)
+
+			.why__svg
+				@include whySvg(60%, 77%)
+
+	&__circle
+		fill: #fff
+
+		&_opacity
+			fill-opacity: .5
+
+	&__title
+		font-weight: 400
+
+	&__wrap-block
+		display: flex
+		align-items: center
+		padding: 0 60px
+		width: 100%
+		min-height: 300px
+
+	&__line
+		position: absolute
+		width: 50px
+		height: 50px
+		border-top: 1px solid #fff
+		top: 50%
+		opacity: 0
+
+	&__wrap
+		&_left
+			.why__line
+				left: 100%
+				border-right: 1px solid #fff
+		&_right
+			.why__line
+				right: 100%
+				border-left: 1px solid #fff
+
+	&__block
+		padding: 15px
+		max-width: 230px
+		background-color: #fff
+		border-radius: 10px
+		position: relative
+		z-index: 2
+		margin-bottom: 10px
+
+		&:hover
+			.why__line
+				opacity: 1
+
+.where
+	@extend %section
+	background-color: #fff
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	
+	&__wrap
+		width: 100%
+		padding: 0 105px
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+
+	&__block
+		min-width: calc(100% / 5)
+		padding: 30px 10px
+		font-size: ($fs) + 1
+
+	&__title
+		font-weight: 400
+
+	&__link
+		text-decoration: none
+		color: #1faa50
+		padding-top: 15px
+		font-weight: 300
+
+.contacts
+	@extend %section
+	background-color: #f3f3f3
+
+.call
+	width: 100%
+	padding: 30px 0
+	background-color: #fff
+
+	&__wrap
+		text-align: center
+
+	&__email
+		display: inline-block
+		padding: 30px 50px
+		color: #1faa50
+		text-decoration: none
+		font-size: ($fs) + 3
+		font-weight: 300
+
+	&__tel
+		display: inline-block
+		padding: 30px 50px
+		color: #000
+		text-decoration: none
+		font-size: ($fs) + 3
+		font-weight: 300
+
+.sing-up
+	width: 100%
+	padding: 65px 10px
+
+	.form
+		margin: 50px auto
+		width: 40%
+
+.footer
+	width: 100%
+	background-color: #dcdcdc
+	padding: 10px 35px
+	position: absolute
+	bottom: 0
+	left: 0
+
+	&__text
+		color: #fff
+		font-size: ($fs) - 1
+		font-weight: 400
+
+@media screen and (max-width: 823px)
+
+	.navigation
+		right: 25px
+
+	.head__logo
+		padding: 10px
+
+	.about__block,
+	.review1__block,
+	.review2__block
+		padding: 15px
+
+	.range
+		padding: 0 25px
+
+	.why
+		&__wrap-block
+			padding: 0 10px
+
+		&__text
+			display: none
+
+		&__block
+			padding: 5px
+			width: 200px
+			border-radius: 5px
+
+			&:hover
+				.why__text
+					display: block
+
+	.where__wrap
+		padding: 0 15px
+
+@media screen and (max-width: 568px)
+
+	.head
+		padding-top: 50px
+
+		&__block
+			min-width: 90%
+
+		&__title
+			font-size: 50px
+
+		&__text
+			padding: 20px
+	
+	.form
+		min-width: 100%
+	
+		&__email
+			font-size: ($fs)
+			line-height: ($fs) + 2
+			padding: 15px
+			width: 60%
+	
+		&__btn
+			font-size: ($fs) + 2
+			line-height: ($fs) + 2
+			padding: 15px 20px
+
+	.title
+		padding: 15px 0 10px
+
+		&__text
+			line-height: 30px
+
+	%blockMobil
+		width: 100%
+		min-height: 50vh
+
+	%imgMobil
+		width: 100%
+		height: 100vh
+		max-height: 400px
+		position: static
+
+	.about
+
+		&__img
+			@extend %imgMobil
+	
+		&__block
+			@extend %blockMobil
+
+	.review1
+
+		&__img
+			@extend %imgMobil
+	
+		&__block
+			@extend %blockMobil
+			margin-left: 0
+
+	.review2
+
+		&__img
+			@extend %imgMobil
+	
+		&__block
+			@extend %blockMobil
+
+	.comment
+
+		&__block
+			padding: 20px 0
+
+		&__text
+			padding: 0 20px
+
+	.slider
+	
+		&__title
+			font-size: ($fs) + 2
+			line-height: 25px
+
+		&__number
+			font-size: ($fs)
+			line-height: 25px
+
+	.why
+		
+		&__wrap-block
+			position: relative
+			justify-content: space-between
+
+		&__bg-block	
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+		
+		&__block
+			width: 145px
+
+		&__bg
+			display: none
+
+		&__line
+			display: none
+
+		&__text
+			display: block
+
+	.where
+
+		&__block
+			min-width: 50%
+			padding: 15px 10px
+			font-size: ($fs)
+
+		
+

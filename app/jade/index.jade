@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1")
+		title Document
+		link(href="https://fonts.googleapis.com/css?family=Nunito:300,i300,400|Yantramanav:100,300,400" rel="stylesheet")
+		link(rel="stylesheet", href="css/style.css")
+	body.page
+		nav.navigation
+			ul.navigation__menu
+				li.navigation__item
+					a.navigation__link.navigation__link_active(href="#head") 1
+				li.navigation__item
+					a.navigation__link(href="#about") 2
+				li.navigation__item
+					a.navigation__link(href="#review1") 3
+				li.navigation__item
+					a.navigation__link(href="#review2") 4
+				li.navigation__item
+					a.navigation__link(href="#range") 5
+				li.navigation__item
+					a.navigation__link(href="#why") 6
+				li.navigation__item
+					a.navigation__link(href="#where") 7
+				li.navigation__item
+					a.navigation__link(href="#contacts") 8
+		header.head#head.block
+			.head__logo
+				img.logo(src="img/logo.png", alt="plae shoes")
+			.head__block
+				h1.head__title Comming Soon
+				p.head__text goplae.co.uk is coming soon but in the meantime check out this page  and sign up to our newsletter for more information
+				form(action="#").form
+					input.form__email(type="email" name="email" placeholder="Enter email address")
+					input.form__btn(type="submit" value="Sing Up")
+		section.about#about.block
+			.about__img
+			.about__block
+				h2.title About Plae
+				p.about__text Previously a Designer for Puma and Adidas, Head Designer Ryan Ringholz has started a new revolution in kids trainers. Using technology usually reserved for elite athletes, Plae creates shoes designed especially for a child’s foot.
+				p.about__text Because kids feet are always growing, their shoes should accommodate leaving the cartilage and fledgling bone room to grow its own way. The interchangeable tabs adjust to accommodate thinner, wider or thicker feet and nearly all Plae shoes can fit an AFO orthotic brace.
+				p.about__text With their dynamic traction, little feet can feel the ground beneath them and get a grip on it. The rest is designed to elite athlete standards: super shock absorption, durable toe guards, and wicking, washable anti-microbial inserts.
+				p.about__text With every shoe, Plae sources responsible, recycled, and non-toxic materials, and makes sure 
+		section.review1#review1.block
+			.review1__img
+			.review1__block
+				h2.title What our customers say
+				.comment
+					.comment__block
+						p.comment__quote.comment__quote_top "
+						p.comment__text I like them because they are very comfy and soft inside. They are really light which means I run faster. I like the cool straps that I can change
+						p.comment__quote.comment__quote_bottom "
+					p.comment__age Charlie (age 8)
+		section.review2#review2.block
+			.review2__img
+			.review2__block
+				.comment
+					.comment__block
+						p.comment__quote.comment__quote_top "
+						p.comment__text I like that I can do PE in them because they're so comfy and then after school in the park, the bottoms are grippy so I can climb really well
+						p.comment__quote.comment__quote_bottom "
+					p.comment__age Edie (age 6)
+		section.range#range.block
+			h2.title The Range
+			p.title__text View the styles available now from select stockists
+			.slider
+				.slider__list
+					.slider__wrap
+						mixin slider(img, title, number)
+							.slider__item
+								.slider__img-block
+									img.slider__img(src="img/#{img}.png", alt="")
+								.slider__block
+									p.slider__title= title
+									p.slider__number= number
+						+slider("Ty_N_Steel", "TY", "1/7")
+						+slider("Max_N_Steel_Camo", "Max", "2/7")
+						+slider("Emme_S_Pink", "Emme", "3/7")
+						+slider("Camile_Navy_3Quarter", "Camille", "4/7")
+						+slider("Noel_Bracken", "Noel", "5/7")
+						+slider("Roan_L_White", "Roan", "6/7")
+						+slider("Nat_Navy", "Nat", "7/7")
+				.slider__arow.slider__arow_prev
+					img(src="img/arow.png", alt="prev")
+				.slider__arow.slider__arow_next
+					img(src="img/arow.png", alt="next")
+		section.why#why.block
+			h2.title Why Plae?
+			p.title__text Some of the features that make Plae shoes so good for kids
+			mixin whyBlock(boots, title, text)
+				div(class="why__block why__block_#{boots}")
+					p.why__title= title
+					p.why__text= text
+					.why__line(width="50" height="50")
+			.why__wrap-block
+				.why__wrap.why__wrap_left
+					+whyBlock("pull", "Pull Tab", "makes it easy for little hands and fingers to get their shoes on.")
+					+whyBlock("shock", "Shock Absorption", "removable ECO-ORTHOLITE® anti-microbial, anti-bacterial insole, made from castor beans, provides superior protection with renewable resources.")
+					+whyBlock("custom", "Custom Fit & Style", "interchangeable tabs come in S,M,L,XL sizes to accommodate instep widths and allows kids to make it their own with different color, material and print options. Plae shoes also have the ability to fit AFO ")
+					+whyBlock("eco", "Eco-Friendly", "made in a solar powered, fair labour factory using recycled milk jugs (PET), ISO certified leathers, and water-based ")
+				.why__bg-block
+					.why__bg
+						mixin bootsSvg()
+							svg.why__svg(width="24" height="24")
+								circle.why__circle.why__circle_opacity(r="50%" cx="50%" cy="50%")
+								circle.why__circle(r="33.333%" cx="50%" cy="50%")
+						.why__boots.why__boots_pull
+							+bootsSvg()
+						.why__boots.why__boots_shock
+							+bootsSvg()
+						.why__boots.why__boots_custom
+							+bootsSvg()
+						.why__boots.why__boots_eco
+							+bootsSvg()
+						.why__boots.why__boots_toe
+							+bootsSvg()
+						.why__boots.why__boots_machine
+							+bootsSvg()
+						.why__boots.why__boots_form
+							+bootsSvg()
+						.why__boots.why__boots_flexible
+							+bootsSvg()
+						.why__boots.why__boots_traction
+							+bootsSvg()
+				.why__wrap.why__wrap_right
+					+whyBlock("machine", "Machine Washable*", "for when kids get dirty.")
+					+whyBlock("form", "Anatomical Form", "specially engineered sole follows the natural contour of a child’s foot - which is mostly")
+					+whyBlock("flexible", "Flexible Sole", "promotes natural movement by allowing for a free range of movement.")
+					+whyBlock("traction", "Passive Traction", "promotes natural movement by providing grip on loose earth without compromising contact on hard surfaces.")
+					+whyBlock("toe", "Toe Guard", "protects both the foot and shoe from toe drag.")
+		section.where#where.block
+			h2.title Where can you find us? 
+			p.title__text See below our UK stockist list
+			.where__wrap
+				mixin where(title, address, city, index, phone, href, link)
+					.where__block
+						p.where__title= title
+						p.where__text= address
+						p.where__text= city
+						p.where__text= index
+						p.where__text= phone
+						a.where__link(href="#{href}")= link
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+				+where("Best Foot Forward", "76 Liverpool Road", "Preston", "PR1 0QD", "0208 969 7565", "#", "bestfootforward.co.uk")
+		section.contacts#contacts.block
+			.call
+				h2.title Like to stock Plae? 
+				p.title__text Call or email us to send an enquiry
+				.call__wrap
+					a.call__email(href="mailto:hello@goplae.co.uk") hello@goplae.co.uk
+					a.call__tel(href="tel:+7947301292") 07947 301292
+			.sing-up
+				h2.title Be the first to see goplae.co.uk 
+				p.title__text Sign Up for the latest news
+				form(action="#").form
+					input.form__email(type="email" name="email" placeholder="Enter email address")
+					input.form__btn(type="submit" value="Sing Up")
+
+			footer.footer
+				p.footer__text Copyright © 2015 Craftymothers ltd. All Rights Reserved
+
+
+
+
+		script(src="js/jquery-3.3.1.min.js")
+		script(src="js/common.js")
